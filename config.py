@@ -1,6 +1,6 @@
 import os
+from openai import AsyncOpenAI
 from dotenv import load_dotenv
-
 
 load_dotenv(override=True)
 
@@ -21,8 +21,8 @@ hotkey_start = "ctrl+1"
 hotkey_exit = "ctrl+2"
 
 # OpenAI client setup
-from openai import AsyncOpenAI
-openai = AsyncOpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
-
 if not os.environ.get("OPENAI_API_KEY"):
     raise ValueError("OPENAI_API_KEY não definida! Verifique o arquivo .env")
+
+openai = AsyncOpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
