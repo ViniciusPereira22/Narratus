@@ -1,7 +1,7 @@
 import io
 import base64
 from PIL import Image
-from config import openai, MODEL_VISION, instructions_text
+from config import openai, MODEL_VISION, instructions_text, VISION_IMAGE_DETAIL
 
 
 async def image_to_text(img: Image.Image) -> str | None:
@@ -18,7 +18,7 @@ async def image_to_text(img: Image.Image) -> str | None:
                     "type": "image_url",
                     "image_url": {
                         "url": f"data:image/png;base64,{b64_image}",
-                        "detail": "low"
+                        "detail": VISION_IMAGE_DETAIL
                     }
                 },
             ],

@@ -5,8 +5,9 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 # Modelos OpenAI
-MODEL_VISION = "gpt-4.1-nano"  # or "gpt-4o-mini"
+MODEL_VISION = "gpt-4.1-nano"  # "gpt-4.1-nano" or "gpt-4o-mini"
 MODEL_TTS = "gpt-4o-mini-tts"
+VISION_IMAGE_DETAIL = "low" # "high" or "low"
 
 # Configuração de áudio
 VOICE = "ash"
@@ -25,4 +26,3 @@ if not os.environ.get("OPENAI_API_KEY"):
     raise ValueError("OPENAI_API_KEY não definida! Verifique o arquivo .env")
 
 openai = AsyncOpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
-
