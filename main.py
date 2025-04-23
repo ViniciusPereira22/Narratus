@@ -29,7 +29,9 @@ async def capture_and_read():
     print(f"[INFO] Texto extraído: {extracted_text}")
     print("[INFO] Sintetizando fala…")
     await speak(extracted_text)
-    print("[INFO] Fala concluída.")
+    print("[INFO] Fala concluída.\n")
+    print(f"→ Pressione [{hotkey_start}] para capturar uma região da tela e realizar a leitura.")
+    print(f"→ Pressione [{hotkey_exit}] para encerrar.")
 
 def start_hotkey_loop() -> None:
     keyboard.add_hotkey(hotkey_start, lambda: threading.Thread(target=lambda: asyncio.run(capture_and_read()), daemon=True).start())
